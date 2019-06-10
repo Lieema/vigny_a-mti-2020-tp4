@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Target from '../components/Target';
+import Targets from '../components/Targets';
 import Info from '../components/Info';
 import ButtonStart from '../components/ButtonStart';
 
@@ -28,7 +28,7 @@ const GameLayout = ({ isStarted, lives, score, dispatch }) => (
     {isStarted ? (
       <React.Fragment>
         <Info lives={lives} score={score} />
-        <Target x={50} y={30} value={2} />
+        <Targets />
       </React.Fragment>
     ) : (
       <ButtonStart onClick={() => dispatch({ type: 'GAME_START_REQUESTED' })} />

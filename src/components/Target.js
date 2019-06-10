@@ -1,6 +1,7 @@
 import React from 'react';
+import store from '../store';
 
-const Target = ({id, x = 0, y = 0, value = 0, onClick = () => {} }) => (
+const Target = ({id, x = 0, y = 0, value = 0, onClick = () => {}}) => (
   <div
     style={{
       position: 'absolute',
