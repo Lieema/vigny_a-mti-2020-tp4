@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Target = ({ x = 0, y = 0, value = 0, onClick = () => {} }) => (
+const Target = ({id, x = 0, y = 0, value = 0, onClick = () => {} }) => (
   <div
     style={{
       position: 'absolute',
