@@ -1,3 +1,5 @@
+TP Done by Axel VIGNY (vigny_a)
+
 1. write a new saga called `gameSaga`, this saga must react to `GAME_START_REQUESTED` events and change the game state accordingly.
 
 2. add a new reducer called `targets`, and change `GameLayout`, to render `<Target>` elements for each item in this state (hint: use a default state)
