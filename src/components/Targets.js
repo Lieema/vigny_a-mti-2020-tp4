@@ -16,7 +16,7 @@ const Targets = ({ targets, dispatch }) => {
           x={el.x}
           y={el.y}
           value={el.value}
-          onClick={() => dispatch({ type: "DELETE_TARGET", id: el.id })}
+          onClick={() => dispatch({ type: "CLICK_TILE" })}
         />
       ))}
     </div>
