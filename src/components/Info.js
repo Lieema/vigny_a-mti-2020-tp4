@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Info = ({ lives, score }) => (
+const Info = ({ lives, score, multiplicator }) => (
   <div
     style={{
       position: 'fixed',
@@ -14,6 +14,7 @@ const Info = ({ lives, score }) => (
   >
     <div>{lives} ❤️</div>
     <div>{score} 🥇</div>
+    <div>{multiplicator} X</div>
   </div>
 );
 

@@ -8,10 +8,11 @@ import ButtonStart from '../components/ButtonStart';
 const mapStateToProps = state => ({
   lives: state.game.lives,
   score: state.game.score,
+  multiplicator: state.game.multiplicator,
   isStarted: state.game.isStarted
 });
 
-const GameLayout = ({ isStarted, lives, score, dispatch }) => (
+const GameLayout = ({ isStarted, lives, score, multiplicator, dispatch }) => (
   <div
     style={{
       position: 'fixed',
@@ -27,7 +28,7 @@ const GameLayout = ({ isStarted, lives, score, dispatch }) => (
   >
     {isStarted ? (
       <React.Fragment>
-        <Info lives={lives} score={score} />
+        <Info lives={lives} score={score} multiplicator={multiplicator} />
         <Targets />
       </React.Fragment>
     ) : (
