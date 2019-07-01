@@ -1,4 +1,6 @@
 TP Done by Axel VIGNY (vigny_a)
+Targets dispatched randomly on the screen, the timer before they got destroyed is a random number
+A multiplicator of points is present, everytime you kill a target, next time you will gain one more points than last kill (max. is 10)
 
 1. write a new saga called `gameSaga`, this saga must react to `GAME_START_REQUESTED` events and change the game state accordingly.
 
