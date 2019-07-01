@@ -8,6 +8,11 @@ let SPAWN_INTERVAL = 2000
 
 function* targetLifeCycle(targetId) {
     while (true) {
+        const plsStop = yield select(({ game }) => game.lives <= 0 || !game.isStarted)
+        if (plsStop) {
+            yield put({ type: 'DELETE_TARGET', id: targetId })
+            break
+        }
         const target = yield select(({ targets }) => targets.find(({ id }) => id === targetId))
         yield delay(TIME_INTERVAL)
         if (target.value === 0) {
@@ -37,15 +42,17 @@ function* spawnTarget() {
 }
 
 function* gameSaga() {
-    yield take('GAME_START_REQUESTED')
-    yield put({ type: 'GAME_START' })
+    while (true) {    
+        yield take('GAME_START_REQUESTED')
+        yield put({ type: 'GAME_START' })
 
-    while (yield select(({ game }) => game.lives > 0)){
-        yield delay(SPAWN_INTERVAL)
-        yield fork(spawnTarget)
+        while (yield select(({ game }) => game.lives > 0)){
+            yield delay(SPAWN_INTERVAL)
+            yield fork(spawnTarget)
+        }
+
+        yield put ({type: 'GAME_END'})
     }
-
-    yield put ({type: 'GAME_END'})
 }
 
 export default gameSaga

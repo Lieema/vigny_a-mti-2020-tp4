@@ -13,7 +13,7 @@ const game = (state = defaultState, action) => {
       };
     case 'GAME_END':
       return {
-        ...state,
+        ...defaultState,
         isStarted: false
       }
     case 'LOSE_LIFE':
