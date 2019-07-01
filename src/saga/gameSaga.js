@@ -15,7 +15,7 @@ function* targetLifeCycle(targetId) {
             break
         }
         else {
-            yield put({ type: 'UPDATE_TARGET', payload: target })
+            yield put({ type: 'UPDATE_TARGET', id: targetId })
         }
     }
 }
@@ -24,11 +24,11 @@ function* spawnTarget() {
     let id = TARGET_IDS
     yield put({ type: 'ADD_TARGET', payload: TARGET_IDS++})
     const { clicked } = yield race({
-        clicked: take(action => action.type === 'CLICK_TILE' && action.payload === id),
+        clicked: take(action => action.type === 'CLICK_TILE' && action.id === id),
         timeout: targetLifeCycle(id)
     })
     if (clicked) {
-        yield put({ type: 'DELETE_TARGET', payload: id })
+        yield put({ type: 'DELETE_TARGET', id: id })
         yield put({ type: 'INC_SCORE' })
     }
     else {

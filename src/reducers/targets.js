@@ -23,7 +23,7 @@ const target = (state, action) => {
 const targets = (state = baseState, action) => {
   switch (action.type) {
     case "UPDATE_TARGET":
-      return state.map(t => action.payload.id === t.id ? target(t, action) : t );
+      return state.map(t => action.id === t.id ? target(t, action) : t );
     case "ADD_TARGET":
       return [...state, target(undefined, action)];
     case "DELETE_TARGET":
